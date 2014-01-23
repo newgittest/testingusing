@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>    
+    <script src="../Scripts/jquery.signalR.min.js" type="text/javascript"></script>       
+    <script src="/signalr/hubs" type="text/javascript"></script> 
+    
+    
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+            
+    <link href="http://cdn.wijmo.com/themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css" />    
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.9.min.css" rel="stylesheet" type="text/css" />    
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20132.9.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.9.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/interop/wijmo.data.ajax.3.20132.9.js" type="text/javascript"></script> 
+
+
+
+    <script type="text/javascript">
+
+     var myhubcon = $.connection.nCUserHub;
+
+     myhubcon.RecordUpdated = function (name, record) {         
+
+         var data = $("#demo").wijgrid("data");
+
+         var id = record["id"];
+
+         GetObjectAndUpdate(data, id);
+         
+         function GetObjectAndUpdate(obj, keyToFind) {
+             var i = 0;
+             for (var k in obj) {
+                 var temp = obj[i];
+                 var id = temp["id"];
+                 if (id == keyToFind) {
+                     data[i]["firstname"] = record["firstname"];
+                     data[i]["lastname"] = record["lastname"];
+                     data[i]["age"] = record["age"];
+                 }
+                 i++;
+             }
+         }
+
+         $("#demo").wijgrid("ensureControl", true);
+     }
+
+     myhubcon.RecordCreated = function (name, record) {
+
+         var data = $("#demo").wijgrid("data");
+
+         data.push(record);
+
+         $("#demo").wijgrid("ensureControl", true);
+
+
+     }
+
+     myhubcon.RecordDeleted = function (name, record) {                
+
+         var data = $("#demo").wijgrid("data");
+
+         var id = record["id"];
+
+         var ind = GetObjectKeyIndex(data, id)
+
+         data.splice(ind, 1);
+
+         function GetObjectKeyIndex(obj, keyToFind) {
+             var i = 0, key;
+             for (var k in obj) {
+                 var temp = obj[i];
+                 var id = temp["id"];
+                 if (id == keyToFind) {
+                     return i;
+                 }
+                 i++;
+             }
+             return null;
+         }    
+
+         $("#demo").wijgrid("ensureControl", true);        
+
+     }
+
+     $.connection.hub.start(); 
+
+    </script>   
+     
+</head>
+<body>         
+     <button id="btndelete" type="button" >Delete Record</button>
+     <button id="btngetall" type="button" >Get All</button>
+     <button id="btnupdate" type="button" >Update Record</button>
+     <button id="btnadd" type="button" >Add Record</button>
+     <br /> 
+     <table id="demo"> 
+     </table>
+        
+    <script type="text/javascript">
+    
+        (function () {
+
+            var Users = Backbone.Collection.extend({
+                url: '/api/NCUser'
+            });
+
+            var User = Backbone.Model.extend({
+                urlRoot: '/api/NCUser',
+                defaults: {
+                    firstname: "default",
+                    lastname: "default",
+                    age: 0
+                }
+            });
+
+            var UserListView = Backbone.View.extend({             
+                render: function () {
+                    var that = this;
+                    var users = new Users();
+                    users.fetch({
+                        success: function (users) {
+                            var obj = $.parseJSON(JSON.stringify(users));
+                            SetData(obj);
+                        }
+                    });
+                }
+            });
+
+            var userList = new UserListView();
+
+            function SetData(arr) {
+                $("#demo").wijgrid({
+                    data: arr,
+                    allowEditing: true,
+                    allowPaging: true,
+                    allowSorting: true,
+                    //pageSize: 10,
+                    //pageIndex:0,
+                    allowColSizing : true,
+                    columns: [
+                                 { headerText: "ID", readOnly: true, width: 5 },
+                                 { headerText: "First Name"},
+                                 { headerText: "Last Name"},
+                                 { headerText: "Age"}
+                             ]
+                });
+            }
+         
+
+            $('#btndelete').click(function () {
+
+                var $grid = $("#demo"),
+                row = $grid.wijgrid("selection").selectedCells().length() > 0
+                   ? $grid.wijgrid("selection").selectedCells().item(0).row()
+                   : null;
+
+                if (row && (row.type & $.wijmo.wijgrid.rowType.data)) {
+                    //$grid.wijgrid("data").splice(row.dataItemIndex, 1);
+                    var datasource = row.data;
+                    var id = datasource["id"];
+                    var result = confirm('Do you want to delete User with ID =' + id);
+                    var user = new User();
+                    user.set("id", id);
+                    user.set("firstname", datasource["firstname"]);
+                    user.set("lastname", datasource["lastname"]);
+                    user.set("age", datasource["age"]);
+                    if (result) {
+                        user.destroy({
+                            success: function () {                                                           
+                            }
+                        });
+                    }
+                }
+            });
+
+            $('#btngetall').click(function () {
+                userList.render();
+            });
+
+            $('#btnupdate').click(function () {
+                var $grid = $("#demo"),
+                  row = $grid.wijgrid("selection").selectedCells().length() > 0
+                     ? $grid.wijgrid("selection").selectedCells().item(0).row()
+                     : null;
+
+                var datasource = row.data;
+
+                var id = datasource["id"];
+                var firstname = datasource["firstname"];
+                var lastname = datasource["lastname"];
+                var age = datasource["age"];
+
+                var user = new User();
+                user.set("", datasource["id"]);
+                user.set("", datasource["firstname"]);
+                user.set("", datasource["lastname"]);
+                user.set("", datasource["age"]);
+
+                user.save(datasource, {
+                    success: function (user) {                        
+                        
+                    },
+                    error: function () {
+                        alert('Error occured in updating data.');
+                    }
+                });
+            });
+
+            $('#btnadd').click(function () {               
+
+                var user = new User();
+                var userDetails = {
+                    firstname: 'new',
+                    lastname: 'new',
+                    age: 0
+                };
+                user.save(userDetails, {
+                    success: function (user) {                        
+                        alert('added record successfully.........');                                     
+                    }
+                });
+            });
+
+            var Router = Backbone.Router.extend({
+                routes: {
+                    "": "home"
+                }
+            });
+
+            var router = new Router;
+
+            router.on('route:home', function () {
+                userList.render();
+            })
+
+            Backbone.history.start();
+
+        })();
+
+    </script>
+
+    
+</body>
+</html>
+ 
