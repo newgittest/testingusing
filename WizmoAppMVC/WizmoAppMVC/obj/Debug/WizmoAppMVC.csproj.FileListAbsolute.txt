@@ -35,3 +35,40 @@ C:\Users\shailendra.mishra\Desktop\Practice Projects\WizmoAppMVC\WizmoAppMVC\bin
 C:\Users\shailendra.mishra\Desktop\Practice Projects\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.dll
 C:\Users\shailendra.mishra\Desktop\Practice Projects\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.pdb
 C:\Users\shailendra.mishra\Desktop\Practice Projects\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.csprojResolveAssemblyReference.cache
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\WizmoAppMVC.dll.config
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\WizmoAppMVC.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\WizmoAppMVC.pdb
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\Antlr3.Runtime.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\EntityFramework.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\Newtonsoft.Json.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.Formatting.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.WebRequest.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Helpers.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Http.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Http.WebHost.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Mvc.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Optimization.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Providers.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Razor.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\WebGrease.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\EntityFramework.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\Newtonsoft.Json.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.Formatting.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Net.Http.WebRequest.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Helpers.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Http.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Http.WebHost.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Mvc.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.Razor.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.csprojResolveAssemblyReference.cache
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.dll
+C:\Users\manish.singh\Desktop\wijmo\WizmoAppMVC\WizmoAppMVC\obj\Debug\WizmoAppMVC.pdb
